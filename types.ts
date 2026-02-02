@@ -30,6 +30,7 @@ export interface DailyProgress {
 
 export enum GameState {
   HOME = 'HOME',
+  COUNTDOWN = 'COUNTDOWN',
   QUIZ = 'QUIZ',
   RESULTS = 'RESULTS',
   SUPERVISOR = 'SUPERVISOR'
