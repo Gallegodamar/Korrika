@@ -16,22 +16,32 @@ export interface QuizData {
 
 export interface UserAnswer {
   question: Question;
-  selectedOption: string | null; // null if timeout
+  selectedOption: string | null;
   isCorrect: boolean;
 }
 
+export interface Player {
+  name: string;
+  score: number;
+  answers: UserAnswer[];
+}
+
 export interface DailyProgress {
-  dayIndex: number; // 0 to 10
+  dayIndex: number;
   score: number;
   completed: boolean;
-  date: string; // ISO string of when it was completed
+  date: string;
   answers: UserAnswer[];
+  players?: Player[]; // Store competition results if any
 }
 
 export enum GameState {
   HOME = 'HOME',
+  PLAYER_SETUP = 'PLAYER_SETUP',
   COUNTDOWN = 'COUNTDOWN',
   QUIZ = 'QUIZ',
-  RESULTS = 'RESULTS',
+  TURN_TRANSITION = 'TURN_TRANSITION',
+  RANKING = 'RANKING',
+  RESULTS = 'RESULTS', // Solo results
   SUPERVISOR = 'SUPERVISOR'
 }

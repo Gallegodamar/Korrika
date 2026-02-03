@@ -28,7 +28,13 @@ export const RAW_DATA: QuizData[] = [
       { "id": 21, "pregunta": "Nork abestu zuen 21. Korrikako kanta (2019koa)?", "opciones": { "a": "Mad Muaselek, Ferminek eta La Furiak.", "b": "Olatz Salvadorrek eta Miren Narbaizak", "c": "Gorka Urbizuk eta Lide Hernandok", "d": "Leire Martinezek eta NØgen taldeak" }, "respuesta_correcta": "a" },
       { "id": 22, "pregunta": "Nork kantatu zuen 22. Korrikako abestia (2022koa)?", "opciones": { "a": "Dupla eta Joselu Anayak taldeek", "b": "Huntza eta Korrontzi taldeek", "c": "Hainbatek, besteak beste, Arabako ESIko langile taldeak.", "d": "Ane Urbizuk, Anarik eta Ane Garciak" }, "respuesta_correcta": "d" },
       { "id": 23, "pregunta": "Nork abestu zuen 23. Korrikako kanta (2024koa)?", "opciones": { "a": "Rotten XIII taldeak", "b": "Zuriñe Hidalgok", "c": "Pello Reparazek", "d": "Maite Arroitajauregik" }, "respuesta_correcta": "d" },
-      { "id": 24, "pregunta": "Nork kantatuko du 24. Korrikako abestia (2026koa)?", "opciones": { "a": "Kai Nakaik eta Lide Hernandok.", "b": "Zetak-ek, Maixux Zugarramurdik, Erramun Martikorenak", "c": "ETS taldeak", "d": "Nafarroa 1512 taldeak" }, "respuesta_correcta": "b" }
+      { "id": 24, "pregunta": "Nork kantatuko du 24. Korrikako abestia (2026koa)?", "opciones": { "a": "Kai Nakaik eta Lide Hernandok.", "b": "Zetak-ek, Maixux Zugarramurdik, Erramun Martikorenak", "c": "ETS taldeak", "d": "Nafarroa 1512 taldeak" }, "respuesta_correcta": "b" },
+      {"id":25,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Afrika Bibang-ek","b":"Tom Lizarazuk","c":"Fermin Muguruzak","d":"Ines Osinagak"},"respuesta_correcta":"b"},
+      {"id":26,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Mikel Laboak","b":"La Furiak","c":"Zuriñe Hidalgok","d":"Iñigo Muguruzak"},"respuesta_correcta":"c"},
+      {"id":27,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Mad Muaselek","b":"Alex Sarduik","c":"Gorka Urbizuk","d":"Izaro Andresek"},"respuesta_correcta":"d"},
+      {"id":28,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Pettik","b":"Zaloak","c":"Enrique Villarreal \"El Drogas\"ek","d":"Josune Arakistainek"},"respuesta_correcta":"b"},
+      {"id":29,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Anarik","b":"Jurgi Ekizak","c":"Maider Zabalegik","d":"Xabi Solanok"},"respuesta_correcta":"c"},
+      {"id":30,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Iñaki Ortiz de Villalbak","b":"Ixiar Orejak","c":"Ruper Ordorikak","d":"Aiora Renteriak"},"respuesta_correcta":"a"}
     ]
   },
   {
@@ -86,7 +92,13 @@ export const RAW_DATA: QuizData[] = [
       { "id": 21, "pregunta": "Zein izan zen 21. Korrikako kanta?", "opciones": { "a": "Klika Korrika.", "b": "Harro Herri", "c": "Bagoaz", "d": "Zirkorrika" }, "respuesta_correcta": "a" },
       { "id": 22, "pregunta": "Zein izan zen 22. Korrikako kanta?", "opciones": { "a": "Zirkorrika", "b": "Heldu", "c": "Klika", "d": "HitzEkin" }, "respuesta_correcta": "d" },
       { "id": 23, "pregunta": "Zein izan zen 23. Korrikako kanta?", "opciones": { "a": "Herri bat gara", "b": "Gu gara Korrika", "c": "Euskara Gara", "d": "Harro Herri" }, "respuesta_correcta": "d" },
-      { "id": 24, "pregunta": "Zein da 24. Korrikako kanta?", "opciones": { "a": "Kaka Korrika", "b": "Xiberutikan Mendebaldera", "c": "Zuberotik munduko hiriburura", "d": "Klika Korrika" }, "respuesta_correcta": "b" }
+      { "id": 24, "pregunta": "Zein da 24. Korrikako kanta?", "opciones": { "a": "Kaka Korrika", "b": "Xiberutikan Mendebaldera", "c": "Zuberotik munduko hiriburura", "d": "Klika Korrika" }, "respuesta_correcta": "b" },
+      {"id":25,"pregunta":"Zein Korrikatarako egin zuten “Gero bat gaurdanik” abestia?","opciones":{"a":"12. Korrikarako","b":"13. Korrikarako","c":"11. Korrikarako","d":"14. Korrikarako"},"respuesta_correcta":"b"},
+      {"id":26,"pregunta":"Zein Korrikatarako egin zuten “Txis pun, Korrika” abestia?","opciones":{"a":"17. Korrikarako","b":"12. Korrikarako","c":"13. Korrikarako","d":"15. Korrikarako"},"respuesta_correcta":"a"},
+      {"id":27,"pregunta":"Zein Korrikatarako egin zuten “Big Beñat” abestia?","opciones":{"a":"12. Korrikarako","b":"13. Korrikarako","c":"9. Korrikarako","d":"10. Korrikarako"},"respuesta_correcta":"c"},
+      {"id":28,"pregunta":"Zein Korrikatarako egin zuten “Zirkorrika” abestia?","opciones":{"a":"18. Korrikarako","b":"20. Korrikarako","c":"19. Korrikarako","d":"21. Korrikarako"},"respuesta_correcta":"b"},
+      {"id":29,"pregunta":"Zein Korrikatarako egin zuten “Ongi etorri lagun” abestia?","opciones":{"a":"18. Korrikarako","b":"17. Korrikarako","c":"16. Korrikarako","d":"15. Korrikarako"},"respuesta_correcta":"c"},
+      {"id":30,"pregunta":"Zein Korrikatarako egin zuten “Euskal Herria Korrika” abestia?","opciones":{"a":"8. Korrikarako","b":"9. Korrikarako","c":"10. Korrikarako","d":"11. Korrikarako"},"respuesta_correcta":"b"}
     ]
   },
   {
@@ -115,7 +127,13 @@ export const RAW_DATA: QuizData[] = [
       { "id": 21, "pregunta": "Nor omendu zuten 21. edizioan (2019an)?", "opciones": { "a": "Txillardegi", "b": "Athletic", "c": "Bertsozale Elkartea", "d": "Osakidetza" }, "respuesta_correcta": "a" },
       { "id": 22, "pregunta": "Nor omendu zuten 22. edizioan (2022an)?", "opciones": { "a": "Txirri, Mirri eta Txiribiton", "b": "Kixki ta Mizki ta Kaxkamelon", "c": "Potx eta Lotx", "d": "Pirritx, Porrotx eta Mari Motots" }, "respuesta_correcta": "d" },
       { "id": 23, "pregunta": "Nor omendu zuten 23. edizioan (2024an)?", "opciones": { "a": "Itxaro Borda", "b": "Zuriñe Hidalgo", "c": "Pello Reparaz", "d": "Azterketak Euskaraz kolektiboa" }, "respuesta_correcta": "d" },
-      { "id": 24, "pregunta": "Nor omenduko dute 24. edizioan (2026an)?", "opciones": { "a": "IVAP", "b": "Errigora", "c": "HABE", "d": "Gure Zirkua" }, "respuesta_correcta": "b" }
+      { "id": 24, "pregunta": "Nor omenduko dute 24. edizioan (2026an)?", "opciones": { "a": "IVAP", "b": "Errigora", "c": "HABE", "d": "Gure Zirkua" }, "respuesta_correcta": "b" },
+      {"id":25,"pregunta":"Nor edo zein elkarte ez zuten omendu 11. edizioan (1999an)?","opciones":{"a":"Jose Luis Arkonada","b":"Pedro Etxenike","c":"Jose Angel Iribar","d":"Maitane Araguas"},"respuesta_correcta":"b"},
+      {"id":26,"pregunta":"Nor edo zein elkarte ez zuten omendu 11. edizioan (1999an)?","opciones":{"a":"Maiatz elkartea","b":"Mendia Optika","c":"Goya gozotegia","d":"Euskalerria irratia"},"respuesta_correcta":"c"},
+      {"id":27,"pregunta":"Nor edo zein elkarte ez zuten omendu 11. edizioan (1999an)?","opciones":{"a":"Etxepe enpresa","b":"CAF enpresa","c":"Mila Etxezarraga","d":"Maite Larizgoitia"},"respuesta_correcta":"b"},
+      {"id":28,"pregunta":"Nor edo zein elkarte ez zuten omendu 11. edizioan (1999an)?","opciones":{"a":"Arantza herria","b":"Joserra Etxeberria","c":"Marije Learreta","d":"Ondarroa herria"},"respuesta_correcta":"d"},
+      {"id":29,"pregunta":"Zein ediziotan omendu zituzten euskara ikasi eta berreskuratu duten familiak?","opciones":{"a":"14. edizioan","b":"15. edizioan","c":"16. edizioan","d":"17. edizioan"},"respuesta_correcta":"c"},
+      {"id":30,"pregunta":"Zein ediziotan omendu zituzten Korrikaren sortzaileak?","opciones":{"a":"10. edizioan","b":"15. edizioan","c":"20. edizioan","d":"5. edizioan"},"respuesta_correcta":"c"}
     ]
   },
   {
@@ -144,8 +162,14 @@ export const RAW_DATA: QuizData[] = [
       { "id": 21, "pregunta": "Zenbatgarren edizioa atzeratu behar izan zen COVIDa dela eta?", "opciones": { "a": "19. edizioa.", "b": "20. edizioa", "c": "21. edizioa", "d": "22. edizioa" }, "respuesta_correcta": "d" },
       { "id": 22, "pregunta": "Nork idatzi zuen 19. edizioko mezua?", "opciones": { "a": "Eñaut Elorrietak", "b": "Joseba Sarrionandiak", "c": "Estitxu Fernandezek", "d": "Lorea Agirrek" }, "respuesta_correcta": "d" },
       { "id": 23, "pregunta": "Nork eraman zuen lehen aldiz lekukoa?", "opciones": { "a": "AEK-ko ikasle talde batek", "b": "Martin Ugaldek", "c": "Jose Mari Satrustegi akademikoak", "d": "Ramon Labayenek" }, "respuesta_correcta": "c" },
-      { "id": 24, "pregunta": "Nork eramaten du lekukoa azken kilometroan?", "opciones": { "a": "Zozketa bidez erabakitzen da", "b": "AEK-ko Batzorde Nazionalak", "c": "Korrika laguntzaileen artean zozkatzen da", "d": "Eusko Jaurlaritzako Kultura sailburuak" }, "respuesta_correcta": "b" }
-    ]
+      { "id": 24, "pregunta": "Nork eramaten du lekukoa azken kilometroan?", "opciones": { "a": "Zozketa bidez erabakitzen da", "b": "AEK-ko Batzorde Nazionalak", "c": "Korrika laguntzaileen artean zozkatzen da", "d": "Eusko Jaurlaritzako Kultura sailburuak" }, "respuesta_correcta": "b" },
+      {"id":25,"pregunta":"Zenbatgarren kilometroa egin zuen Lehendakariak 12. Korrikan?","opciones":{"a":"Lehengoa","b":"Bigarrena","c":"Ehungarrena","d":"Azkenaurrekoa"},"respuesta_correcta":"b"},
+      {"id":26,"pregunta":"Noiz hasi zen Korrika laguntzailea egiten?","opciones":{"a":"10. edizioan","b":"11. edizioan","c":"13. edizioan","d":"15. edizioan"},"respuesta_correcta":"b"},
+      {"id":27,"pregunta":"Zenbatgarren Korrikan izan zituzten arazoak Iruñean sartzeko?","opciones":{"a":"8. Korrikan","b":"10. Korrikan","c":"13. Korrikan","d":"15. Korrikan"},"respuesta_correcta":"c"},
+      {"id":28,"pregunta":"Zein ediziotarako prestatu zuten Bidaia intimoak dokumentala?","opciones":{"a":"13. Korrikarako","b":"14. Korrikarako","c":"15. Korrikarako","d":"16. Korrikarako"},"respuesta_correcta":"d"},
+      {"id":29,"pregunta":"Zenbatgarren Korrikan prestatu zuten mezua Xabier eta Miren Amurizak?","opciones":{"a":"15. Korrikan","b":"14. Korrikan","c":"13. Korrikan","d":"12. Korrikan"},"respuesta_correcta":"b"},
+      {"id":30,"pregunta":"Zein urtetan sinatu zuten bakea AEK-k eta Eusko Jaurlaritzak?","opciones":{"a":"1993an","b":"1995ean","c":"1997an","d":"1999an"},"respuesta_correcta":"c"}
+  ]
   },
   {
     "capitulo": "HASIERA-BUKAERAK",
@@ -173,7 +197,13 @@ export const RAW_DATA: QuizData[] = [
       { "id": 21, "pregunta": "21. edizioa (2019an)?", "opciones": { "a": "Gares-Gasteiz", "b": "Otxandio-Iruñea", "c": "Urepele-Bilbo", "d": "Andoain-Baiona" }, "respuesta_correcta": "a" },
       { "id": 22, "pregunta": "22. edizioa (2022an)?", "opciones": { "a": "Irun-Baiona", "b": "Gares-Gasteiz", "c": "Irun-Baiona", "d": "Amurrio-Donostia" }, "respuesta_correcta": "d" },
       { "id": 23, "pregunta": "23. edizioa (2024an)?", "opciones": { "a": "Andoain-Baiona", "b": "Urepele-Bilbo", "c": "Amurrio-Donostia", "d": "Irun-Baiona" }, "respuesta_correcta": "d" },
-      { "id": 24, "pregunta": "24. edizioa (2026an)?", "opciones": { "a": "Trebiñu-Donostia", "b": "Atharratze-Bilbo", "c": "Gares-Gasteiz", "d": "Irun-Baiona" }, "respuesta_correcta": "b" }
+      { "id": 24, "pregunta": "24. edizioa (2026an)?", "opciones": { "a": "Trebiñu-Donostia", "b": "Atharratze-Bilbo", "c": "Gares-Gasteiz", "d": "Irun-Baiona" }, "respuesta_correcta": "b" },
+      {"id":25,"pregunta":"Zenbat aldiz hasi da Korrika Atharratzen?","opciones":{"a":"Inoiz ez","b":"Behin soilik, 2026an","c":"Bitan","d":"Hasi behin eta bukatu beste behin"},"respuesta_correcta":"c"},
+      {"id":26,"pregunta":"Zein ediziotan izan zen Iruñea hasiera eta bukaera Donostia?","opciones":{"a":"3., 9. eta 10. edizioetan","b":"2., 8. eta 15. edizioetan","c":"3., 8. eta 13. edizioetan","d":"2., 6. eta 11. edizioetan"},"respuesta_correcta":"d"},
+      {"id":27,"pregunta":"Zenbat aldiz bukatu zen Korrika Gasteizen 80ko hamarkadan?","opciones":{"a":"Behin","b":"Bi aldiz","c":"Inoiz ez","d":"Bukatu ez, baina hasi behin"},"respuesta_correcta":"c"},
+      {"id":28,"pregunta":"Zenbat aldiz bukatu zen Korrika Bilbon 80ko hamarkadan?","opciones":{"a":"Inoiz ez, soilik hasi","b":"Bitan","c":"Hirutan","d":"Behin"},"respuesta_correcta":"c"},
+      {"id":29,"pregunta":"Zenbat aldiz hasi da Korrika Donibane-Lohitzunen?","opciones":{"a":"Behin soilik","b":"Hirutan","c":"Inoiz ez","d":"Bitan"},"respuesta_correcta":"c"},
+      {"id":30,"pregunta":"Lehen edizioa kontuan hartu gabe, noiz hasi zen Korrika herri batean hasten?","opciones":{"a":"1995ean","b":"1993an","c":"1997an","d":"1999an"},"respuesta_correcta":"b"}
     ]
-  }
-];
+  },
+   ]
