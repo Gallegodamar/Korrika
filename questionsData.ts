@@ -13,7 +13,7 @@ export const RAW_DATA: QuizData[] = [
       { "id": 6, "pregunta": "Nork kantatu zuen 6. Korrikako abestia (1989koa)?", "opciones": { "a": "Xanti eta Maider taldeak", "b": "Maider eta Xabi taldeak", "c": "Xanti eta Malen taldeak", "d": "Alaitz eta Maider taldeak" }, "respuesta_correcta": "a" },
       { "id": 7, "pregunta": "Nork abestu zuen 7. Korrikako kanta (1991koa)?", "opciones": { "a": "Maixa ta Ixiar taldeak", "b": "Alaitz eta Maider taldeak", "c": "Gozategi taldeak", "d": "Irigoien anaiek eta Mikel Erramuspek" }, "respuesta_correcta": "d" },
       { "id": 8, "pregunta": "Nork kantatu zuen 8. Korrikako abestia (1993koa)?", "opciones": { "a": "Negu Gorriak taldeak", "b": "Kepa Junkerak", "c": "Tapiak eta Leturia taldeak", "d": "Egan taldeak" }, "respuesta_correcta": "c" },
-      { "id": 9, "pregunta": "Nork abestu zuen 9. Korrikako kanta (1995ekoa)?", "opciones": { "a": "Alaitz eta Maider taldeak", "b": "Mikel Laboa", "c": "Benito Lertxundi", "d": "Kashbad taldeak" }, "respuesta_correcta": "b" },
+      { "id": 9, "pregunta": "Nork abestu zuen 9. Korrikako kanta (1995ekoa)?", "opciones": { "a": "Alaitz eta Maider taldeak", "b": "Mikel Laboa", "c": "Benito Lertxundik", "d": "Kashbad taldeak" }, "respuesta_correcta": "b" },
       { "id": 10, "pregunta": "Nork kantatu zuen 10. Korrikako abestia (1997koa)?", "opciones": { "a": "Fermin Muguruzak", "b": "Afrika Bibangek", "c": "Gozategi taldeak", "d": "Kashbad taldeak" }, "respuesta_correcta": "c" },
       { "id": 11, "pregunta": "Nork abestu zuen 11. Korrikako kanta (1999koa)?", "opciones": { "a": "Joxe Ripiau-k", "b": "Sorkun-ek", "c": "Hemendik at taldeak", "d": "Betagarri taldeak" }, "respuesta_correcta": "a" },
       { "id": 12, "pregunta": "Nork kantatu zuen 12. Korrikako abestia (2001ekoa)?", "opciones": { "a": "Etsaiak taldeak", "b": "Anari-k", "c": "Sorkun-ek", "d": "Fermin Muguruza-k" }, "respuesta_correcta": "d" },
@@ -32,9 +32,9 @@ export const RAW_DATA: QuizData[] = [
       {"id":25,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Afrika Bibang-ek","b":"Tom Lizarazuk","c":"Fermin Muguruzak","d":"Ines Osinagak"},"respuesta_correcta":"b"},
       {"id":26,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Mikel Laboak","b":"La Furiak","c":"Zuriñe Hidalgok","d":"Iñigo Muguruzak"},"respuesta_correcta":"c"},
       {"id":27,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Mad Muaselek","b":"Alex Sarduik","c":"Gorka Urbizuk","d":"Izaro Andresek"},"respuesta_correcta":"c"},
-      {"id":28,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Pettik","b":"Zaloak","c":"Enrique Villarreal \"El Drogas\"ek","d":"Josune Arakistainek"},"respuesta_correcta":"b"},
+      {"id":28,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Pettik","b":"Zaloak","c":"Enrique Villarreal \"El Drogas\"ek","d":"Josune Arakistainek"},"respuesta_correcta":"d"},
       {"id":29,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Anarik","b":"Jurgi Ekizak","c":"Maider Zabalegik","d":"Xabi Solanok"},"respuesta_correcta":"c"},
-      {"id":30,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Iñaki Ortiz de Villalbak","b":"Ixiar Orejak","c":"Ruper Ordorikak","d":"Aiora Renteriak"},"respuesta_correcta":"a"}
+      {"id":30,"pregunta":"Zein musikarik ez du oraindik Korrika abestietan parte hartu?","opciones":{"a":"Iñaki Ortiz de Villalbak","b":"Ixiar Orejak","c":"Ruper Ordorikak","d":"Aiora Renteriak"},"respuesta_correcta":"d"}
     ]
   },
   {
@@ -69,11 +69,11 @@ export const RAW_DATA: QuizData[] = [
   {
     "capitulo": "ABESTIAK",
     "preguntas": [
-      { "id": 1, "pregunta": "Nork abestu zuen 1. Korrikako kanta (1980koa)?", "opciones": { "a": "Maite Idirinek", "b": "Xabier Amurizak", "c": "Xabier Letek", "d": "Lourdes Iriondok" }, "respuesta_correcta": "b" },
-      { "id": 2, "pregunta": "Nork kantatu zuen 2. Korrikako abestia (1982koa)?", "opciones": { "a": "Lou Urangak", "b": "Egan taldeak", "c": "Akelarre taldeak", "d": "Idoia Urangak" }, "respuesta_correcta": "c" },
-      { "id": 3, "pregunta": "Nork abestu zuen 3. Korrikako kanta (1983koa)?", "opciones": { "a": "Idoia Urangak", "b": "Itoiz taldeak", "c": "Lourdes Iriondok", "d": "Egan taldeak" }, "respuesta_correcta": "d" },
-      { "id": 4, "pregunta": "Nork kantatu zituen 4. Korrikako bertsoak (1985ekoa)?", "opciones": { "a": "Lontxo Aburuzak", "b": "Errobi taldeak", "c": "Maite Idirinek", "d": "Idoia Urangak" }, "respuesta_correcta": "a" },
-      { "id": 5, "pregunta": "Nork abestu zuen 5. Korrikako kanta (1987koa)?", "opciones": { "a": "Pantxoa eta Peio taldeak", "b": "Oskorri taldeak", "c": "Idoia Urangak", "d": "Lourdes Iriondok" }, "respuesta_correcta": "b" },
+      { "id": 1, "pregunta": "Nork abestu zuen 1. Korrikako kanta (1980koa)? (izenbururik ez duena)", "opciones": { "a": "Maite Idirinek", "b": "Xabier Amurizak", "c": "Xabier Letek", "d": "Lourdes Iriondok" }, "respuesta_correcta": "b" },
+      { "id": 2, "pregunta": "Nork kantatu zuen 2. Korrikako abestia (1982koa)? (izenbururik ez duena)", "opciones": { "a": "Lou Urangak", "b": "Egan taldeak", "c": "Akelarre taldeak", "d": "Idoia Urangak" }, "respuesta_correcta": "c" },
+      { "id": 3, "pregunta": "Nork abestu zuen 3. Korrikako kanta (1983koa)? (izenbururik ez duena)", "opciones": { "a": "Idoia Urangak", "b": "Itoiz taldeak", "c": "Lourdes Iriondok", "d": "Egan taldeak" }, "respuesta_correcta": "d" },
+      { "id": 4, "pregunta": "Nork kantatu zituen 4. Korrikako bertsoak (1985ekoa)? (izenbururik ez duena)", "opciones": { "a": "Lontxo Aburuzak", "b": "Errobi taldeak", "c": "Maite Idirinek", "d": "Idoia Urangak" }, "respuesta_correcta": "a" },
+      { "id": 5, "pregunta": "Nork abestu zuen 5. Korrikako kanta (1987koa) (izenbururik ez duena)? (izenbururik ez duena)", "opciones": { "a": "Pantxoa eta Peio taldeak", "b": "Oskorri taldeak", "c": "Idoia Urangak", "d": "Lourdes Iriondok" }, "respuesta_correcta": "b" },
       { "id": 6, "pregunta": "Zein izan zen 6. Korrikako kanta?", "opciones": { "a": "Gu AEK-koak gara!", "b": "AEK eta kito!", "c": "AEK onena!", "d": "Gora AEK!" }, "respuesta_correcta": "a" },
       { "id": 7, "pregunta": "Nork kantatu zuen 8. Korrikako abestia (1991koa)?", "opciones": { "a": "Alaitz eta Maider taldeak", "b": "Maixa eta Ixiar taldeak", "c": "Gozategi taldeak", "d": "Irigoien anaiek eta Mikel Erramuspek" }, "respuesta_correcta": "d" },
       { "id": 8, "pregunta": "Zein izan zen 8. Korrikako kanta?", "opciones": { "a": "Korrika urteko onena", "b": "Gora Korrika", "c": "Aide Korrika", "d": "Korrika eta kito!" }, "respuesta_correcta": "c" },
@@ -94,11 +94,11 @@ export const RAW_DATA: QuizData[] = [
       { "id": 23, "pregunta": "Zein izan zen 23. Korrikako kanta?", "opciones": { "a": "Herri bat gara", "b": "Gu gara Korrika", "c": "Euskara Gara", "d": "Harro Herri" }, "respuesta_correcta": "d" },
       { "id": 24, "pregunta": "Zein da 24. Korrikako kanta?", "opciones": { "a": "Kaka Korrika", "b": "Xiberutikan Mendebaldera", "c": "Zuberotik munduko hiriburura", "d": "Klika Korrika" }, "respuesta_correcta": "b" },
       {"id":25,"pregunta":"Zein Korrikatarako egin zuten “Gero bat gaurdanik” abestia?","opciones":{"a":"12. Korrikarako","b":"13. Korrikarako","c":"11. Korrikarako","d":"14. Korrikarako"},"respuesta_correcta":"b"},
-      {"id":26,"pregunta":"Zein Korrikatarako egin zuten “Txis pun, Korrika” abestia?","opciones":{"a":"17. Korrikarako","b":"12. Korrikarako","c":"13. Korrikarako","d":"15. Korrikarako"},"respuesta_correcta":"a"},
-      {"id":27,"pregunta":"Zein Korrikatarako egin zuten “Big Beñat” abestia?","opciones":{"a":"12. Korrikarako","b":"13. Korrikarako","c":"9. Korrikarako","d":"10. Korrikarako"},"respuesta_correcta":"c"},
+      {"id":26,"pregunta":"Zein Korrikatarako egin zuten “Txis pun, Korrika” abestia?","opciones":{"a":"17. Korrikarako","b":"12. Korrikarako","c":"13. Korrikarako","d":"15. Korrikarako"},"respuesta_correcta":"d"},
+      {"id":27,"pregunta":"Zein Korrikatarako egin zuten “Big Beñat” abestia?","opciones":{"a":"12. Korrikarako","b":"13. Korrikarako","c":"9. Korrikarako","d":"10. Korrikarako"},"respuesta_correcta":"a"},
       {"id":28,"pregunta":"Zein Korrikatarako egin zuten “Zirkorrika” abestia?","opciones":{"a":"18. Korrikarako","b":"20. Korrikarako","c":"19. Korrikarako","d":"21. Korrikarako"},"respuesta_correcta":"b"},
       {"id":29,"pregunta":"Zein Korrikatarako egin zuten “Ongi etorri lagun” abestia?","opciones":{"a":"18. Korrikarako","b":"17. Korrikarako","c":"16. Korrikarako","d":"15. Korrikarako"},"respuesta_correcta":"c"},
-      {"id":30,"pregunta":"Zein Korrikatarako egin zuten “Euskal Herria Korrika” abestia?","opciones":{"a":"8. Korrikarako","b":"9. Korrikarako","c":"10. Korrikarako","d":"11. Korrikarako"},"respuesta_correcta":"b"}
+      {"id":30,"pregunta":"Zein Korrikatarako egin zuten “Euskal Herria Korrika” abestia?","opciones":{"a":"8. Korrikarako","b":"9. Korrikarako","c":"10. Korrikarako","d":"11. Korrikarako"},"respuesta_correcta":"c"}
     ]
   },
   {
@@ -143,15 +143,15 @@ export const RAW_DATA: QuizData[] = [
       { "id": 2, "pregunta": "Zerezkoa da lekukoa?", "opciones": { "a": "Altzairuzkoa", "b": "Kanpotik egurrezkoa, barrutik metalezkoa", "c": "Egurrezkoa", "d": "Kanpotik egurrezkoa, barrutik aluminiozkoa" }, "respuesta_correcta": "c" },
       { "id": 3, "pregunta": "Lau Korrika ikusteko zenbat urte igaro behar dira?", "opciones": { "a": "Edizioa zein den", "b": "Hamar", "c": "Zortzi", "d": "Sei" }, "respuesta_correcta": "d" },
       { "id": 4, "pregunta": "Zenbat kilometro egiten dira Korrikan gutxi gorabehera?", "opciones": { "a": "2.100 inguru", "b": "3.500 inguru", "c": "1.500 inguru", "d": "3.000 inguru" }, "respuesta_correcta": "a" },
-      { "id": 5, "pregunta": "Zenbat Korrika amaitu ziren Baionan?", "opciones": { "a": "Bi", "b": "Hiru", "c": "Lau", "d": "Bakarra" }, "respuesta_correcta": "b" },
+      { "id": 5, "pregunta": "Zenbat Korrika amaitu ziren Baionan?", "opciones": { "a": "Bi", "b": "Hiru", "c": "Lau", "d": "Bakarra" }, "respuesta_correcta": "c" },
       { "id": 6, "pregunta": "Non ez da inoiz amaitu Korrika?", "opciones": { "a": "Donibane Garazin", "b": "Gasteizen", "c": "Baionan", "d": "Bilbo" }, "respuesta_correcta": "a" },
       { "id": 7, "pregunta": "Zenbat Korrika egin ziren XX. mendean?", "opciones": { "a": "9", "b": "12", "c": "10", "d": "11" }, "respuesta_correcta": "d" },
       { "id": 8, "pregunta": "Non ez da inoiz hasi Korrika?", "opciones": { "a": "Orreagan", "b": "Trebiñun", "c": "Azpeitian", "d": "Amurrion" }, "respuesta_correcta": "c" },
       { "id": 9, "pregunta": "Zein urtetan jarri zen martxan Korrika kultura?", "opciones": { "a": "2001ean, 12. edizioan", "b": "1999an, 11. edizioan", "c": "1995ean, 10. edizioan", "d": "1997an, 10. edizioan" }, "respuesta_correcta": "b" },
-      { "id": 10, "pregunta": "Nola du izena Korrikaren aldizkariak?", "opciones": { "a": "Korrika ibil bedi", "b": "Korrika ibilbidea", "c": "AEK Korrika", "d": "Korrika AEK" }, "respuesta_correcta": "c" },
+      { "id": 10, "pregunta": "Nola du izena Korrikaren ibilbidea azaltzen duen aplikazioak?", "opciones": { "a": "Korrika ibil bedi", "b": "Korrika ibilbidea", "c": "AEK Korrika", "d": "Korrika AEK" }, "respuesta_correcta": "c" },
       { "id": 11, "pregunta": "Zer gertatu zen lehenengo edizioa bukatu eta hurrengo egunean?", "opciones": { "a": "John Lennon tirokatu zuten.", "b": "Realak lehen liga irabazi zuen.", "c": "Fermin Muguruza jaio zen.", "d": "Life of Brian estreinatu zen zinema aretoetan." }, "respuesta_correcta": "a" },
-      { "id": 12, "pregunta": "Zein urtetan ez zen ospatu Korrika?", "opciones": { "a": "2022an", "b": "1979an", "c": "2020an", "d": "2021ean" }, "respuesta_correcta": "d" },
-      { "id": 13, "pregunta": "2007ko edizioan, zein ibaiaren ondotik ibili zen Korrika?", "opciones": { "a": "Zadorra", "b": "Bidasoa", "c": "Ibaizabal", "d": "Ebro" }, "respuesta_correcta": "d" },
+      { "id": 12, "pregunta": "Zein urtetan ez zen ospatu Korrika?", "opciones": { "a": "2022an", "b": "1980an", "c": "2020an", "d": "2021ean" }, "respuesta_correcta": "b" },
+      { "id": 13, "pregunta": "2007ko edizioan, ibilbidea eteteko zorian egon zen ibai batek gainezka egin zuelako. Zein?", "opciones": { "a": "Zadorra", "b": "Bidasoa", "c": "Ibaizabal", "d": "Ebro" }, "respuesta_correcta": "d" },
       { "id": 14, "pregunta": "Zein urtetan antolatu ziren diasporaren lehenengo Korrikak?", "opciones": { "a": "1997an", "b": "1999an", "c": "2001ean", "d": "1995ean" }, "respuesta_correcta": "b" },
       { "id": 15, "pregunta": "2011n, Euskaltzaindia omendu zuten. Noiz sortu zen?", "opciones": { "a": "1918an", "b": "1925ean", "c": "1921ean", "d": "1915ean" }, "respuesta_correcta": "a" },
       { "id": 16, "pregunta": "Nork idatzi zuen 22. edizioko mezua?", "opciones": { "a": "Onintza Enbeitak", "b": "Karmele Jaiok", "c": "Jon Arretxek", "d": "Harkaitz Canok" }, "respuesta_correcta": "b" },
@@ -159,14 +159,14 @@ export const RAW_DATA: QuizData[] = [
       { "id": 18, "pregunta": "2007ko edizioan zein mendate igo zuten?", "opciones": { "a": "Barazar", "b": "Herrera", "c": "Opakua", "d": "Urizaharra" }, "respuesta_correcta": "d" },
       { "id": 19, "pregunta": "Nork idatzi zuen 23. edizioko mezua?", "opciones": { "a": "Kepa Errastik", "b": "Kike Amonarrizek", "c": "Onintza Enbeita", "d": "Garazi Arrula" }, "respuesta_correcta": "d" },
       { "id": 20, "pregunta": "Non dago jatorrizko lekukoa?", "opciones": { "a": "San Telmo museoan", "b": "Guggenheim museoan", "c": "Euskararen Etxean", "d": "Izaskun Arrue kulturgunean" }, "respuesta_correcta": "a" },
-      { "id": 21, "pregunta": "Zenbatgarren edizioa atzeratu behar izan zen COVIDa dela eta?", "opciones": { "a": "19. edizioa.", "b": "20. edizioa", "c": "21. edizioa", "d": "22. edizioa" }, "respuesta_correcta": "d" },
+      { "id": 21, "pregunta": "Zenbatgarren edizioa atzeratu behar izan zen COVIDa zela eta?", "opciones": { "a": "19. edizioa.", "b": "20. edizioa", "c": "21. edizioa", "d": "22. edizioa" }, "respuesta_correcta": "d" },
       { "id": 22, "pregunta": "Nork idatzi zuen 19. edizioko mezua?", "opciones": { "a": "Eñaut Elorrietak", "b": "Joseba Sarrionandiak", "c": "Estitxu Fernandezek", "d": "Lorea Agirrek" }, "respuesta_correcta": "d" },
       { "id": 23, "pregunta": "Nork eraman zuen lehen aldiz lekukoa?", "opciones": { "a": "AEK-ko ikasle talde batek", "b": "Martin Ugaldek", "c": "Jose Mari Satrustegi akademikoak", "d": "Ramon Labayenek" }, "respuesta_correcta": "c" },
       { "id": 24, "pregunta": "Nork eramaten du lekukoa azken kilometroan?", "opciones": { "a": "Zozketa bidez erabakitzen da", "b": "AEK-ko Batzorde Nazionalak", "c": "Korrika laguntzaileen artean zozkatzen da", "d": "Eusko Jaurlaritzako Kultura sailburuak" }, "respuesta_correcta": "b" },
       {"id":25,"pregunta":"Zenbatgarren kilometroa egin zuen Lehendakariak 12. Korrikan?","opciones":{"a":"Lehengoa","b":"Bigarrena","c":"Ehungarrena","d":"Azkenaurrekoa"},"respuesta_correcta":"b"},
-      {"id":26,"pregunta":"Noiz hasi zen Korrika laguntzailea egiten?","opciones":{"a":"10. edizioan","b":"11. edizioan","c":"13. edizioan","d":"15. edizioan"},"respuesta_correcta":"b"},
+      {"id":26,"pregunta":"Noiz hasi zen Korrika laguntzailea egiten?","opciones":{"a":"10. edizioan","b":"11. edizioan","c":"13. edizioan","d":"15. edizioan"},"respuesta_correcta":"c"},
       {"id":27,"pregunta":"Zenbatgarren Korrikan izan zituzten arazoak Iruñean sartzeko?","opciones":{"a":"8. Korrikan","b":"10. Korrikan","c":"13. Korrikan","d":"15. Korrikan"},"respuesta_correcta":"c"},
-      {"id":28,"pregunta":"Zein ediziotarako prestatu zuten Bidaia intimoak dokumentala?","opciones":{"a":"13. Korrikarako","b":"14. Korrikarako","c":"15. Korrikarako","d":"16. Korrikarako"},"respuesta_correcta":"d"},
+      {"id":28,"pregunta":"Zein ediziotarako prestatu zuten -Bidaia intimoak- dokumentala?","opciones":{"a":"13. Korrikarako","b":"14. Korrikarako","c":"15. Korrikarako","d":"16. Korrikarako"},"respuesta_correcta":"d"},
       {"id":29,"pregunta":"Zenbatgarren Korrikan prestatu zuten mezua Xabier eta Miren Amurizak?","opciones":{"a":"15. Korrikan","b":"14. Korrikan","c":"13. Korrikan","d":"12. Korrikan"},"respuesta_correcta":"b"},
       {"id":30,"pregunta":"Zein urtetan sinatu zuten bakea AEK-k eta Eusko Jaurlaritzak?","opciones":{"a":"1993an","b":"1995ean","c":"1997an","d":"1999an"},"respuesta_correcta":"c"}
   ]
@@ -203,7 +203,7 @@ export const RAW_DATA: QuizData[] = [
       {"id":27,"pregunta":"Zenbat aldiz bukatu zen Korrika Gasteizen 80ko hamarkadan?","opciones":{"a":"Behin","b":"Bi aldiz","c":"Inoiz ez","d":"Bukatu ez, baina hasi behin"},"respuesta_correcta":"c"},
       {"id":28,"pregunta":"Zenbat aldiz bukatu zen Korrika Bilbon 80ko hamarkadan?","opciones":{"a":"Inoiz ez, soilik hasi","b":"Bitan","c":"Hirutan","d":"Behin"},"respuesta_correcta":"c"},
       {"id":29,"pregunta":"Zenbat aldiz hasi da Korrika Donibane-Lohitzunen?","opciones":{"a":"Behin soilik","b":"Hirutan","c":"Inoiz ez","d":"Bitan"},"respuesta_correcta":"c"},
-      {"id":30,"pregunta":"Lehen edizioa kontuan hartu gabe, noiz hasi zen Korrika herri batean hasten?","opciones":{"a":"1995ean","b":"1993an","c":"1997an","d":"1999an"},"respuesta_correcta":"b"}
+      {"id":30,"pregunta":"Lehen edizioa kontuan hartu gabe, noiz hasi zen Korrika herri batean hasten?","opciones":{"a":"1995ean","b":"1993an","c":"1997an","d":"1999an"},"respuesta_correcta":"c"}
     ]
   },
    ]
