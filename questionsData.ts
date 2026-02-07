@@ -3,7 +3,7 @@ import { QuizData } from './types';
 
 export const RAW_DATA: QuizData[] = [
   {
-    "capitulo": "MUSIKARIAK",
+    "capitulo": "MUSIdddKARIAK",
     "preguntas": [
       { "id": 1, "pregunta": "Nork abestu zuen 1. Korrikako kanta (1980koa)? (izenbururik ez duena)", "opciones": { "a": "Maite Idirinek", "b": "Xabier Amurizak", "c": "Xabier Letek", "d": "Lourdes Iriondok" }, "respuesta_correcta": "b" },
       { "id": 2, "pregunta": "Nork kantatu zuen 2. Korrikako abestia (1982koa)? (izenbururik ez duena)", "opciones": { "a": "Lou Urangak", "b": "Egan-ek taldeak", "c": "Akelarre taldeak", "d": "Idoia Urangak" }, "respuesta_correcta": "c" },
