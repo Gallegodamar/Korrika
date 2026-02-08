@@ -6,7 +6,7 @@ import { RAW_DATA } from './questionsData';
 const STORAGE_KEY = 'korrika_quiz_progress_v6';
 const DAYS_COUNT = 11;
 const QUESTIONS_PER_DAY = 12;
-const SECONDS_PER_QUESTION = 15;
+const SECONDS_PER_QUESTION = 20;
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.HOME);
