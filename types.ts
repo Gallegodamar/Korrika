@@ -45,3 +45,5 @@ export enum GameState {
   RESULTS = 'RESULTS', // Solo results
   SUPERVISOR = 'SUPERVISOR'
 }
+
+export type PlayMode = 'DAILY' | 'RANDOM';

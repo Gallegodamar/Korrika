@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { GameState, Question, DailyProgress, UserAnswer, Player } from './types';
+import { GameState, Question, DailyProgress, UserAnswer, Player, PlayMode } from './types';
 import { RAW_DATA } from './questionsData';
 
 const STORAGE_KEY = 'korrika_quiz_progress_v6';
@@ -10,12 +10,14 @@ const SECONDS_PER_QUESTION = 20;
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.HOME);
+  const [playMode, setPlayMode] = useState<PlayMode>('DAILY');
   const [dayIndex, setDayIndex] = useState(0);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
   const [timer, setTimer] = useState(SECONDS_PER_QUESTION);
   const [progress, setProgress] = useState<DailyProgress[]>([]);
   const [supervisorCategory, setSupervisorCategory] = useState<string>('GUZTIAK');
   const [countdown, setCountdown] = useState(3);
+  const [activeQuestions, setActiveQuestions] = useState<Question[]>([]);
 
   // Multiplayer State
   const [players, setPlayers] = useState<Player[]>([]);
@@ -42,25 +44,37 @@ const App: React.FC = () => {
     return -3;
   }, [progress]);
 
-  const dailyQuestions = useMemo(() => {
-    const idx = (gameState === GameState.HOME || gameState === GameState.PLAYER_SETUP) ? (nextAvailableDay >= 0 ? nextAvailableDay : 0) : dayIndex;
-    const questions: Question[] = [];
-    RAW_DATA.forEach(category => {
-      const q1 = category.preguntas[idx * 2];
-      const q2 = category.preguntas[idx * 2 + 1];
-      if (q1) questions.push({ ...q1, categoryName: category.capitulo });
-      if (q2) questions.push({ ...q2, categoryName: category.capitulo });
-    });
-    return questions;
-  }, [dayIndex, gameState, nextAvailableDay]);
+  const generateQuestions = useCallback((mode: PlayMode, idx: number) => {
+    if (mode === 'RANDOM') {
+      const questions: Question[] = [];
+      RAW_DATA.forEach(category => {
+        // Pick 2 random questions from each category
+        const shuffled = [...category.preguntas].sort(() => 0.5 - Math.random());
+        const picked = shuffled.slice(0, 2).map(q => ({ ...q, categoryName: category.capitulo }));
+        questions.push(...picked);
+      });
+      // Shuffle the final list so blocks are mixed
+      return questions.sort(() => 0.5 - Math.random());
+    } else {
+      const questions: Question[] = [];
+      RAW_DATA.forEach(category => {
+        const q1 = category.preguntas[idx * 2];
+        const q2 = category.preguntas[idx * 2 + 1];
+        if (q1) questions.push({ ...q1, categoryName: category.capitulo });
+        if (q2) questions.push({ ...q2, categoryName: category.capitulo });
+      });
+      return questions;
+    }
+  }, []);
 
-  const currentQuestion = dailyQuestions[currentQuestionIdx];
+  const currentQuestion = activeQuestions[currentQuestionIdx];
 
   const handleNextQuestion = useCallback((selectedOption: string | null) => {
-    if (!currentQuestion) return;
+    if (activeQuestions.length === 0) return;
 
-    const isCorrect = selectedOption === currentQuestion.respuesta_correcta;
-    const newAnswer: UserAnswer = { question: currentQuestion, selectedOption, isCorrect };
+    const q = activeQuestions[currentQuestionIdx];
+    const isCorrect = selectedOption === q.respuesta_correcta;
+    const newAnswer: UserAnswer = { question: q, selectedOption, isCorrect };
 
     setPlayers(prev => {
       const updated = [...prev];
@@ -76,28 +90,31 @@ const App: React.FC = () => {
       if (currentPlayerIdx < players.length - 1) {
         setGameState(GameState.TURN_TRANSITION);
       } else {
-        finishDay();
+        finishGame();
       }
     }
-  }, [currentQuestion, currentQuestionIdx, players, currentPlayerIdx, dayIndex]);
+  }, [currentQuestionIdx, activeQuestions, players, currentPlayerIdx]);
 
-  const finishDay = () => {
+  const finishGame = () => {
     const isMulti = players.length > 1;
     const finalScore = isMulti ? Math.max(...players.map(p => p.score)) : players[0].score;
     
-    const newDailyProgress: DailyProgress = {
-      dayIndex,
-      score: finalScore,
-      completed: true,
-      date: new Date().toISOString(),
-      answers: players[0].answers, 
-      players: isMulti ? players : undefined
-    };
+    // Only save progress if it was a DAILY challenge
+    if (playMode === 'DAILY') {
+      const newDailyProgress: DailyProgress = {
+        dayIndex,
+        score: finalScore,
+        completed: true,
+        date: new Date().toISOString(),
+        answers: players[0].answers, 
+        players: isMulti ? players : undefined
+      };
 
-    const updatedProgress = [...progress];
-    updatedProgress[dayIndex] = newDailyProgress;
-    setProgress(updatedProgress);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProgress));
+      const updatedProgress = [...progress];
+      updatedProgress[dayIndex] = newDailyProgress;
+      setProgress(updatedProgress);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProgress));
+    }
     
     setGameState(isMulti ? GameState.RANKING : GameState.RESULTS);
   };
@@ -126,9 +143,17 @@ const App: React.FC = () => {
     }
   }, [gameState, countdown]);
 
-  const initGame = (mode: 'SOLO' | 'COMP') => {
-    if (nextAvailableDay < 0) return;
-    setDayIndex(nextAvailableDay);
+  const initGame = (mode: 'SOLO' | 'COMP', type: PlayMode) => {
+    const idx = type === 'DAILY' ? nextAvailableDay : 0;
+    if (type === 'DAILY' && idx < 0) return;
+    
+    setPlayMode(type);
+    setDayIndex(idx);
+    
+    // Reset questions for new game
+    const qs = generateQuestions(type, idx);
+    setActiveQuestions(qs);
+
     if (mode === 'SOLO') {
       const p: Player = { name: 'Zuk', score: 0, answers: [] };
       setPlayers([p]);
@@ -153,6 +178,9 @@ const App: React.FC = () => {
   };
 
   const nextTurn = () => {
+    // For competition in RANDOM mode, we might want different questions for each player, 
+    // but usually in these games it's fair to use the same set if playing together, 
+    // or generate new ones. Let's keep the same set for direct comparison.
     setCurrentPlayerIdx(prev => prev + 1);
     setCurrentQuestionIdx(0);
     setTimer(SECONDS_PER_QUESTION);
@@ -188,26 +216,57 @@ const App: React.FC = () => {
       <main className="flex-1 w-full max-w-2xl mx-auto px-4 flex flex-col overflow-hidden relative">
         
         {gameState === GameState.HOME && (
-          <div className="flex-1 flex flex-col items-center justify-center space-y-8 animate-in fade-in zoom-in-95 duration-500">
-            {nextAvailableDay >= 0 ? (
-              <div className="flex flex-col items-center space-y-6 w-full">
-                <div className="text-center">
-                  <p className="text-pink-500 font-black uppercase text-[10px] tracking-widest mb-1">Eguna: {nextAvailableDay + 1}</p>
-                  <h2 className="text-gray-400 text-[10px] font-bold uppercase mb-4">Nola jokatu nahi duzu?</h2>
-                </div>
-                <div className="flex flex-col gap-4 w-full px-8">
-                  <button onClick={() => initGame('SOLO')} className="korrika-bg-gradient text-white py-4 rounded-2xl font-black text-xl uppercase italic shadow-lg hover:scale-105 transition-all active:scale-95 border-2 border-white/20">Bakarka</button>
-                  <button onClick={() => initGame('COMP')} className="bg-gray-800 text-white py-4 rounded-2xl font-black text-xl uppercase italic shadow-lg hover:scale-105 transition-all active:scale-95 border-2 border-white/10">Txapelketa (2-4)</button>
-                </div>
+          <div className="flex-1 flex flex-col items-center justify-center space-y-6 animate-in fade-in zoom-in-95 duration-500 py-6 overflow-y-auto">
+            
+            {/* DAILY CHALLENGE SECTION */}
+            <div className="w-full flex flex-col items-center space-y-4">
+              <div className="text-center">
+                <p className="text-pink-600 font-black uppercase text-[10px] tracking-[0.2em] mb-1">📅 EGUNEKO ERRONKA</p>
+                <h2 className="text-gray-400 text-[10px] font-bold uppercase mb-2">Puntuatu eta lekukoa eraman</h2>
               </div>
-            ) : (
-              <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center text-center gap-3 max-w-xs">
-                <div className="text-5xl">{nextAvailableDay === -2 ? '⏳' : nextAvailableDay === -3 ? '🏁' : '🔒'}</div>
-                <h2 className="text-lg font-black uppercase italic text-gray-800">{nextAvailableDay === -2 ? 'Itxaron!' : nextAvailableDay === -3 ? 'Bukaera!' : 'Blokeatuta'}</h2>
-                <p className="text-[10px] text-gray-500 font-medium">{nextAvailableDay === -2 ? 'Gaurko erronka egina. Itzuli bihar!' : nextAvailableDay === -3 ? 'Zorionak! Erronka osatu duzu.' : 'Blokeatuta dago.'}</p>
+              
+              {nextAvailableDay >= 0 ? (
+                <div className="flex flex-col gap-3 w-full px-8">
+                  <button onClick={() => initGame('SOLO', 'DAILY')} className="korrika-bg-gradient text-white py-4 rounded-2xl font-black text-lg uppercase italic shadow-lg hover:scale-[1.02] transition-all active:scale-95 border-2 border-white/20">
+                    Bakarka ({nextAvailableDay + 1}. Eguna)
+                  </button>
+                  <button onClick={() => initGame('COMP', 'DAILY')} className="bg-gray-800 text-white py-3 rounded-2xl font-black text-sm uppercase italic shadow-lg hover:scale-[1.02] transition-all active:scale-95 border-2 border-white/10">
+                    Txapelketa txandaka
+                  </button>
+                </div>
+              ) : (
+                <div className="bg-white px-8 py-4 rounded-3xl shadow-md border border-gray-100 flex flex-col items-center text-center gap-2 w-full max-w-xs mx-auto">
+                  <div className="text-3xl">{nextAvailableDay === -2 ? '⏳' : nextAvailableDay === -3 ? '🏁' : '🔒'}</div>
+                  <h2 className="text-sm font-black uppercase italic text-gray-800">{nextAvailableDay === -2 ? 'Itxaron bihar arte!' : nextAvailableDay === -3 ? 'Bukaera!' : 'Blokeatuta'}</h2>
+                  <p className="text-[9px] text-gray-500 font-medium">{nextAvailableDay === -2 ? 'Gaurko erronka egina dago.' : nextAvailableDay === -3 ? 'Zorionak! Korrika osoa egin duzu.' : 'Blokeatuta dago.'}</p>
+                </div>
+              )}
+            </div>
+
+            {/* DIVIDER */}
+            <div className="flex items-center w-full px-12 gap-4">
+               <div className="h-px flex-1 bg-gray-200"></div>
+               <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest">EDO</span>
+               <div className="h-px flex-1 bg-gray-200"></div>
+            </div>
+
+            {/* RANDOM PLAY SECTION */}
+            <div className="w-full flex flex-col items-center space-y-4">
+              <div className="text-center">
+                <p className="text-purple-600 font-black uppercase text-[10px] tracking-[0.2em] mb-1">🎲 LIBRE JOLASTU</p>
+                <h2 className="text-gray-400 text-[10px] font-bold uppercase mb-2">Entrenatu nahi duzunean</h2>
               </div>
-            )}
-            <button onClick={() => setGameState(GameState.SUPERVISOR)} className="text-[9px] font-black uppercase text-pink-300">🔍 Irakasle Gunea</button>
+              <div className="flex flex-col gap-3 w-full px-8">
+                <button onClick={() => initGame('SOLO', 'RANDOM')} className="bg-white border-2 border-purple-100 text-purple-600 py-4 rounded-2xl font-black text-lg uppercase italic shadow-sm hover:border-purple-300 transition-all active:scale-95">
+                  Edozein unetan
+                </button>
+                <button onClick={() => initGame('COMP', 'RANDOM')} className="bg-purple-50 text-purple-700 py-3 rounded-2xl font-black text-sm uppercase italic hover:bg-purple-100 transition-all active:scale-95">
+                  Lagunarteko Txapelketa
+                </button>
+              </div>
+            </div>
+
+            <button onClick={() => setGameState(GameState.SUPERVISOR)} className="mt-4 text-[9px] font-black uppercase text-pink-300 hover:text-pink-500 transition-colors">🔍 Irakasle Gunea & Galderak</button>
           </div>
         )}
 
@@ -215,7 +274,7 @@ const App: React.FC = () => {
           <div className="flex-1 flex flex-col p-6 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-300">
             <div className="text-center">
               <h2 className="text-xl font-black uppercase italic korrika-pink">Jokalariak Gehitu</h2>
-              <p className="text-[10px] text-gray-400 font-bold uppercase">Gehienez 4 lagun txandaka</p>
+              <p className="text-[10px] text-gray-400 font-bold uppercase">Txapelketa {playMode === 'DAILY' ? 'Egunekoa' : 'Librea'}</p>
             </div>
             <div className="space-y-2 flex-1 overflow-auto">
               {tempPlayerNames.map((name, i) => (
@@ -273,9 +332,9 @@ const App: React.FC = () => {
               </div>
               <div className="flex-1 grid grid-rows-4 gap-2 min-h-0">
                 {Object.entries(currentQuestion.opciones).map(([key, value]) => (
-                  <button key={key} onClick={() => handleNextQuestion(key)} className="w-full text-left px-4 rounded-xl border-2 border-gray-100 hover:border-pink-300 transition-all flex items-center gap-3 overflow-hidden active:scale-95">
-                    <span className="w-8 h-8 flex-shrink-0 rounded-lg bg-gray-100 flex items-center justify-center font-black uppercase text-gray-400 text-xs">{key}</span>
-                    <span className="font-bold text-gray-700 text-xs line-clamp-2">{value}</span>
+                  <button key={key} onClick={() => handleNextQuestion(key)} className="w-full text-left px-4 py-3 rounded-xl border-2 border-gray-100 hover:border-pink-300 transition-all flex items-center gap-3 overflow-hidden active:scale-95">
+                    <span className="w-9 h-9 flex-shrink-0 rounded-lg bg-gray-100 flex items-center justify-center font-black uppercase text-gray-400 text-sm">{key}</span>
+                    <span className="font-bold text-gray-700 text-sm line-clamp-2">{value}</span>
                   </button>
                 ))}
               </div>
@@ -322,12 +381,11 @@ const App: React.FC = () => {
                   <button onClick={() => setGameState(GameState.HOME)} className="mt-10 korrika-bg-gradient text-white w-full py-4 rounded-2xl font-black uppercase text-sm shadow-xl hover:scale-105 active:scale-95 transition-all">🏠 Hasierara</button>
                 </div>
 
-                {/* DETAILED COMPARISON TABLE */}
                 <div className="space-y-4">
                   <h3 className="text-sm font-black uppercase italic px-4 flex items-center gap-2 text-gray-400 tracking-widest">
                     <span>📊 Galderaz Galdera Erantzunak</span>
                   </h3>
-                  {dailyQuestions.map((q, qIdx) => (
+                  {activeQuestions.map((q, qIdx) => (
                     <div key={q.id} className="bg-white rounded-3xl p-6 shadow-md border border-gray-100 space-y-4">
                       <div>
                         <span className="text-[9px] font-black uppercase text-pink-400 tracking-widest block mb-1">Galdera {qIdx + 1}</span>
@@ -343,14 +401,14 @@ const App: React.FC = () => {
                         {players.map((p, pIdx) => {
                           const ans = p.answers[qIdx];
                           return (
-                            <div key={pIdx} className={`p-3 rounded-xl border flex items-center gap-3 ${ans.isCorrect ? 'bg-white border-green-200' : 'bg-red-50/50 border-red-100'}`}>
-                              <span className={`w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-sm ${ans.isCorrect ? 'bg-green-500' : 'bg-red-500'}`}>
-                                {ans.isCorrect ? '✅' : '❌'}
+                            <div key={pIdx} className={`p-3 rounded-xl border flex items-center gap-3 ${ans?.isCorrect ? 'bg-white border-green-200' : 'bg-red-50/50 border-red-100'}`}>
+                              <span className={`w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-sm ${ans?.isCorrect ? 'bg-green-500' : 'bg-red-500'}`}>
+                                {ans?.isCorrect ? '✅' : '❌'}
                               </span>
                               <div className="flex-1 overflow-hidden">
                                 <span className="text-[8px] font-black uppercase text-gray-400 block truncate">{p.name}</span>
-                                <span className={`text-[10px] font-bold truncate block ${ans.isCorrect ? 'text-gray-600' : 'text-red-700'}`}>
-                                  {ans.selectedOption ? q.opciones[ans.selectedOption] : '⌛ Berandu'}
+                                <span className={`text-[10px] font-bold truncate block ${ans?.isCorrect ? 'text-gray-600' : 'text-red-700'}`}>
+                                  {ans?.selectedOption ? q.opciones[ans.selectedOption] : '⌛ Berandu'}
                                 </span>
                               </div>
                             </div>
@@ -380,12 +438,12 @@ const App: React.FC = () => {
                       <div className="grid grid-cols-2 gap-3 text-[10px]">
                         <div className={`p-3 rounded-xl border flex flex-col ${answer.isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
                           <span className="font-black uppercase opacity-40 text-[8px] mb-1">Zurea</span>
-                          <span className="font-black truncate block text-gray-700">{answer.selectedOption ? answer.question.opciones[answer.selectedOption] : '⌛ Berandu'}</span>
+                          <span className="font-black truncate block text-gray-700 text-xs">{answer.selectedOption ? answer.question.opciones[answer.selectedOption] : '⌛ Berandu'}</span>
                         </div>
                         {!answer.isCorrect && (
                           <div className="p-3 rounded-xl bg-green-50 border border-green-200 flex flex-col">
                             <span className="font-black uppercase opacity-40 text-[8px] mb-1">Zuzena</span>
-                            <span className="font-black truncate block text-green-700">{answer.question.opciones[answer.question.respuesta_correcta]}</span>
+                            <span className="font-black truncate block text-green-700 text-xs">{answer.question.opciones[answer.question.respuesta_correcta]}</span>
                           </div>
                         )}
                       </div>
